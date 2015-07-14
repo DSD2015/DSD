@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,36 +8,40 @@
 </head>
 <body>
     <%@include file="menu.jsp" %>
-    <table >
-        <tr>
-            <td></td>
-            <td>Buscar Habilidad x Proyecto</td>
-        </tr>
-        <tr>
-            <td>Ruc</td>
-            <td>
-                <input type="text" value="">
-            </td>
-            <td>
-                <a href="actualizarHabilidad.jsp">Buscar</a>
-            </td>
-        </tr>
-    </table>
-    <table border="1" >
-        <tr>
-            <td>Ruc</td>
-            <td>Razon social</td>
-            <td>Estado</td>
-            <td>Editar</td>
-        </tr>
-        <tr>
-            <td>123456</td>
-            <td>Sunat</td>
-            <td>Activo</td>
-            <td>
-                <a href="editarTrabajador.jsp">Actualizar</a>
-            </td>
-        </tr>
-    </table>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <label>Buscar Habilidad por Proyecto:</label>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nombre de Proyecto">
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </div>
+
+        <div class="row margin-top-medium">
+            <table class="table">
+                <tr>
+                    <th>Ruc</th>
+                    <th>Razón Social</th>
+                    <th>Estado</th>
+                    <th>Editar</th>
+                </tr>
+                <tr>
+                    <td>123456</td>
+                    <td>Sunat</td>
+                    <td>Activo</td>
+                    <td>
+                        <a href="editarHabilidad.jsp" class="glyphicon glyphicon-pencil" aria-hidden="true"></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <%@include file="footer.jsp" %>
 </body>
 </html>

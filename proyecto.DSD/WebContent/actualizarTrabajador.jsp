@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,17 +10,17 @@
 	<%@include file="menu.jsp" %>
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-2">
-				<span>Buscar Trabajador:</span>
+			<div class="col-lg-12">
+				<label>Buscar Trabajador:</label>
 			</div>
 			<div class="col-lg-4">
-				<div class="input-group">
+				<div class="form-group">
 					<input type="text" class="form-control" placeholder="Ruc">
-					<span class="input-group-btn">
-					<button class="btn btn-primary" type="button">Buscar</button>
-					</span>
 				</div>
 			</div>
+			<div class="col-lg-12">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
 		</div>
 
 		<div class="row margin-top-medium">

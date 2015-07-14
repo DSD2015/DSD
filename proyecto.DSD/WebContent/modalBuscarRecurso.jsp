@@ -1,78 +1,86 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Quick Win</title>
-	<%@include file="headfile.jsp" %>
-</head>
-<body style="background:#999999">
-	<%@include file="menu.jsp" %>
-	<table>
-		<tr>
-			<td></td>
-			<td> Buscar Recursos</td>
-		</tr>
-		<tr>
-			<td> Perfil </td>
-			<td>
-				<select>
-				<option>seleccione</option>
-				<option>Analista</option>
-				</select>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td> Estado </td>
-			<td>
-				<select>
-					<option>Pendiente</option>
-					<option>No pendiente</option>
-				</select>
-			</td>
-			<td> <a  href="actualizarHabilidad.jsp" >Buscar</a>    </td>
-		</tr>
-		<tr>
-			<td> Fecha Inicio </td>
-			<td> <input  type="button" value=".........." >	  </td>   <td>     </td>
-		</tr>
-		<tr>
-			<td> Fecha Fin </td>
-
-			<td> <input  type="button" value=".........." >	  </td>   <td>     </td>
-		</tr>
-		<tr>
-			<td>  </td>   <td> <input  type="button" value="Buscar" >	  </td>   <td>     </td>
-		</tr>
-	</table>
-	<table   border="1" >
-		<tr>
-			<td>Nombre</td>
-			<td>Sexo</td>
-			<td>Edad</td>
-			<td>Distrito</td>
-			<td>Seleccionar  </td>
-		</tr>
-		<tr>
-			<td>Sandra Wilcox </td>
-			<td>Femenino </td>
-			<td>23  </td>
-			<td>Lima</td>
-		</tr>
-		<tr>
-			<td>Yenny Chavez </td>
-			<td>Femenino </td>
-			<td>25  </td>
-			<td>  San Miguel  </td>
-		</tr>
-		<tr>
-			<td> Carmen Rojas </td>
-			<td>Femenino </td>
-			<td>26  </td>
-			<td>San Isidro</td>
-		</tr>
-	</table>
-</body>
-</html>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+              <label for="perfil">Perfil:</label>
+			  <select class="form-control" id="perfil">
+			    <option>Analista</option>
+			    <option>QA</option>
+			  </select>
+			</div>
+        </div>
+        <div class="col-lg-4">
+            <div class="form-group">
+              <label for="estado">Estado:</label>
+			  <select class="form-control" id="estado">
+			    <option>Activo</option>
+			    <option>Inactivo</option>
+			  </select>
+			</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+        	<label for="estado">Fecha Inicio:</label>
+        	<div class='input-group date'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+        <div class="col-lg-4">
+        	<label for="estado">Fecha Fin:</label>
+        	<div class='input-group date'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+	</div>
+    <div class="row">
+        <div class="col-lg-12">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+    </div>
+    <div class="row margin-top-medium">
+    	<div class="col-lg-8">
+	        <table class="table">
+	            <tr>
+	                <th>Nombre</th>
+	                <th>Sexo</th>
+	                <th>Edad</th>
+	                <th>Distrito</th>
+	                <th>Seleccionar</th>
+	            </tr>
+	            <tr>
+					<td>Sandra Wilcox </td>
+					<td>Femenino </td>
+					<td>23  </td>
+					<td>Lima</td>
+					<td><input type="radio" name="seleccinar"></td>
+				</tr>
+				<tr>
+					<td>Yenny Chavez </td>
+					<td>Femenino </td>
+					<td>25  </td>
+					<td>  San Miguel  </td>
+					<td><input type="radio" name="seleccinar"></td>
+				</tr>
+				<tr>
+					<td> Carmen Rojas </td>
+					<td>Femenino </td>
+					<td>26  </td>
+					<td>San Isidro</td>
+					<td><input type="radio" name="seleccinar"></td>
+				</tr>
+	        </table>
+	    </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <button  type="button" data-dismiss="modal" class="btn btn-primary">Seleccionar</button>
+        </div>
+    </div>
+</div>
