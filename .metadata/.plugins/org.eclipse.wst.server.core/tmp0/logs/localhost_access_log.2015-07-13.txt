@@ -1,0 +1,16 @@
+127.0.0.1 - - [13/Jul/2015:21:30:15 -0500] "GET / HTTP/1.1" 404 961
+0:0:0:0:0:0:0:1 - - [13/Jul/2015:21:30:16 -0500] "GET /proyecto.DSD/ HTTP/1.1" 404 987
+127.0.0.1 - - [13/Jul/2015:21:34:20 -0500] "GET / HTTP/1.1" 404 961
+0:0:0:0:0:0:0:1 - - [13/Jul/2015:21:34:21 -0500] "GET /proyecto.DSD/ HTTP/1.1" 200 623
+0:0:0:0:0:0:0:1 - - [13/Jul/2015:21:34:24 -0500] "GET /proyecto.DSD/menu.jsp HTTP/1.1" 200 1051
+0:0:0:0:0:0:0:1 - - [13/Jul/2015:21:45:24 -0500] "GET /proyecto.DSD/actualizarTrabajador.jsp HTTP/1.1" 200 1965
+0:0:0:0:0:0:0:1 - - [13/Jul/2015:21:45:26 -0500] "GET /proyecto.DSD/actualizarHabilidad.jsp HTTP/1.1" 200 1952
+0:0:0:0:0:0:0:1 - - [13/Jul/2015:21:45:26 -0500] "GET /proyecto.DSD/consultarTrabajadorxEstado.jsp HTTP/1.1" 200 2074
+0:0:0:0:0:0:0:1 - - [13/Jul/2015:21:45:27 -0500] "GET /proyecto.DSD/consultarTrabajadorProy.jsp HTTP/1.1" 200 2103
+0:0:0:0:0:0:0:1 - - [13/Jul/2015:21:45:28 -0500] "GET /proyecto.DSD/consultarTrabajadorProy.jsp HTTP/1.1" 200 2103
+0:0:0:0:0:0:0:1 - - [13/Jul/2015:21:45:29 -0500] "GET /proyecto.DSD/reservaRecursos.jsp HTTP/1.1" 200 2520
+0:0:0:0:0:0:0:1 - - [13/Jul/2015:21:45:30 -0500] "GET /proyecto.DSD/index.jsp HTTP/1.1" 200 615
+0:0:0:0:0:0:0:1 - - [13/Jul/2015:21:45:31 -0500] "GET /proyecto.DSD/menu.jsp HTTP/1.1" 200 1051
+0:0:0:0:0:0:0:1 - - [13/Jul/2015:21:45:33 -0500] "GET /proyecto.DSD/actualizarTrabajador.jsp HTTP/1.1" 200 1965
+0:0:0:0:0:0:0:1 - - [13/Jul/2015:21:45:34 -0500] "GET /proyecto.DSD/actualizarHabilidad.jsp HTTP/1.1" 200 1952
+0:0:0:0:0:0:0:1 - - [13/Jul/2015:21:45:35 -0500] "GET /proyecto.DSD/consultarTrabajadorxEstado.jsp HTTP/1.1" 200 2074
