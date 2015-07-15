@@ -15,7 +15,7 @@
 				<input type="number" class="form-control" id="dni" value="123456">
 			</div>
 			<div class="form-group">
-				<label for="nombre">Nombres y Apellidos Trab.:</label>
+				<label for="nombre">Nombres y Apellidos Recurso:</label>
 				<input type="text" class="form-control" id="nombre" value="Alberto Ortega Alvarez">
 			</div>
 			<div class="form-group">
