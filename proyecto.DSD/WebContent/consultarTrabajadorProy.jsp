@@ -11,11 +11,11 @@
 	<div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <label>Consultar Trabajador por Proyecto:</label>
+                <label>Consultar Recurso por Proyecto:</label>
             </div>
             <div class="col-lg-4">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="DNI del Trabajador">
+                    <input type="text" class="form-control" placeholder="DNI del Recurso">
                 </div>
             </div>
             <div class="col-lg-4">
