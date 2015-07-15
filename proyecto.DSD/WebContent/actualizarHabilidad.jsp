@@ -27,7 +27,7 @@
             <table class="table">
                 <tr>
                     <th>Ruc</th>
-                    <th>RazÃ³n Social</th>
+                    <th>Razón Social</th>
                     <th>Estado</th>
                     <th>Editar</th>
                 </tr>
