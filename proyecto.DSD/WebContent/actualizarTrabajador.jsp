@@ -11,7 +11,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<label>Buscar Trabajador:</label>
+				<label>Buscar Recurso:</label>
 			</div>
 			<div class="col-lg-4">
 				<div class="form-group">
