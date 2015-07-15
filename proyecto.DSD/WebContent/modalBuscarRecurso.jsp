@@ -16,10 +16,13 @@
 			    <option>Activo</option>
 			    <option>Inactivo</option>
 			  </select>
-			</div>
+			</div>  
         </div>
     </div>
     <div class="row">
+
+
+
         <div class="col-lg-4">
         	<label for="estado">Fecha Inicio:</label>
         	<div class='input-group date'>
