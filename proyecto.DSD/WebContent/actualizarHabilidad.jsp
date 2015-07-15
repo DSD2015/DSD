@@ -13,7 +13,7 @@
             <div class="col-lg-12">
                 <label>Buscar Habilidad por Proyecto:</label>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4" >
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Nombre de Proyecto">
                 </div>
