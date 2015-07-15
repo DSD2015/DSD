@@ -11,7 +11,7 @@
 	<div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <label>Consultar Trabajador por Estado:</label>
+                <label>Consultar Recurso por Estado:</label>
             </div>
             <div class="col-lg-4">
                 <div class="form-group">
