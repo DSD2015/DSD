@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +34,7 @@
                     <th>DNI</th>
                     <th>Nombres y Apellidos</th>
                     <th>Proyecto</th>
-                    <th>Razón Social</th>
+                    <th>Razón Social </th>
                     <th>Ruc</th>
                 </tr>
                 <tr>
