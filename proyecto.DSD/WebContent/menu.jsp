@@ -14,6 +14,7 @@
 						<li><a href="consultarTrabajadorProy.jsp">Por Proyecto</a></li>
 					</ul>
 				</li>
+				<li><a href="registrarRecurso.jsp">Registrar Recursos</a></li>
 				<li><a href="reservaRecursos.jsp">Reserva de Recursos</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
