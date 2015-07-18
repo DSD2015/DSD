@@ -1,0 +1,78 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from UtilServiceImplService WSDL service -->
+
+  <service name="UtilServiceImpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://serviceImpl"/>
+      <parameter name="wsdlServiceElement" value="UtilServiceImplService"/>
+      <parameter name="schemaQualified" value="http://serviceImpl"/>
+      <parameter name="wsdlServicePort" value="UtilServiceImpl"/>
+      <parameter name="className" value="serviceImpl.UtilServiceImplSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="UtilServiceImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="listarClientes" qname="operNS:listarClientes" xmlns:operNS="http://serviceImpl" returnQName="retNS:listarClientesReturn" xmlns:retNS="http://serviceImpl" returnType="rtns:ArrayOf_xsd_anyType" xmlns:rtns="http://serviceImpl" returnItemQName="tns:item" xmlns:tns="http://serviceImpl" soapAction="" >
+      </operation>
+      <operation name="registrarSolicitud" qname="operNS:registrarSolicitud" xmlns:operNS="http://serviceImpl" returnQName="retNS:registrarSolicitudReturn" xmlns:retNS="http://serviceImpl" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:solicitud" xmlns:pns="http://serviceImpl" type="tns:Solicitud" xmlns:tns="http://serviceImpl"/>
+      </operation>
+      <parameter name="allowedMethods" value="listarClientes registrarSolicitud"/>
+
+      <typeMapping
+        xmlns:ns="http://serviceImpl"
+        qname="ns:>listarClientes"
+        type="java:serviceImpl.ListarClientes"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://serviceImpl"
+        qname="ns:ArrayOf_xsd_anyType"
+        type="java:java.lang.Object[]"
+        innerType="cmp-ns:anyType" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://serviceImpl"
+        qname="ns:Solicitud"
+        type="java:serviceImpl.Solicitud"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://serviceImpl"
+        qname="ns:>registrarSolicitudResponse"
+        type="java:serviceImpl.RegistrarSolicitudResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://serviceImpl"
+        qname="ns:>registrarSolicitud"
+        type="java:serviceImpl.RegistrarSolicitud"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://serviceImpl"
+        qname="ns:>listarClientesResponse"
+        type="java:serviceImpl.ListarClientesResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

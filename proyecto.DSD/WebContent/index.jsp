@@ -1,45 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
-
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Quick Win</title>
-    <%@include file="headfile.jsp" %>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
 </head>
-<body>
-    <div class="dsd-login-container dsd">
-        <div class="container container-login">
-            <div class="row vertical-center-row">
-                <div class="els-login-wrapper">
-                    <form class="login-form"
-                          name="loginForm"
-                          autocomplete="on"
-                          action="home.jsp"
-                          method="post">
-                        <fieldset>
-                            <input type="text"
-                                   id="onevideo_login_username"
-                                   name="email"
-                                   placeholder="Username">
-                            <input type="password"
-                                   id="onevideo_login_password"
-                                   name="password"
-                                   placeholder="Password">
-                            <button type="submit"
-                                    id="onevideo_login_submit"
-                                    class="btn btn-primary">
-                            <span>Sign In</span>
-                            </button>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+<body style="background:#999999">
+
+<br><br><br><br><br>
+
+
+<table  align="center" border="1" >
+
+
+<tr>
+
+<td>Usuario</td>
+
+<td> <input  type="text" value="" >	</td>
+
+</tr>
+
+<tr>
+
+<td>Clave</td>
+
+<td> <input  type="text" value="" >  </td>
+
+</tr>
+
+
+
+<tr>
+
+<td>  <td>  <a  href="menu.jsp" >Ingresar</a>  </td>   </td>
+
+</tr>
+
+
+</table>
+
+
 </body>
 </html>

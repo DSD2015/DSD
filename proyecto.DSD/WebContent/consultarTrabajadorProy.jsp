@@ -1,52 +1,65 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Quick Win</title>
-	<%@include file="headfile.jsp" %>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
 </head>
-<body>
-	<%@include file="menu.jsp" %>
-	<div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <label>Consultar Recurso por Proyecto:</label>
-            </div>
-            <div class="col-lg-4">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="DNI del Recurso">
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Ruc de la Empresa">
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <button type="submit" class="btn btn-primary">Buscar</button>
-            </div>
-        </div>
+<body style="background:#999999">
 
-        <div class="row margin-top-medium">
-            <table class="table">
-                <tr>
-                    <th>DNI</th>
-                    <th>Nombres y Apellidos</th>
-                    <th>Proyecto</th>
-                    <th>Razón Social </th>
-                    <th>Ruc</th>
-                </tr>
-                <tr>
-                    <td>123456</td>
-                    <td>Alberto Ortega Alvarez</td>
-                    <td>Multi Servicios</td>
-                    <td>Sunar</td>
-                    <td>7654321</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <%@include file="footer.jsp" %>
+<%@include file="menu.jsp" %>
+
+
+<table  align="center" >
+
+		<tr>
+		<td></td>   <td> Consultar Trabajador x Proyecto	  </td>
+		</tr>
+		
+		
+		<tr>
+		<td>DNI</td>   <td> <input  type="text" value="" >	  </td>   <td>    </td>
+		
+		<tr>
+		<td>RUC</td>   <td> <input  type="text" value="" >	  </td>   <td> <a  href="consultarTrabajadorProy.jsp" >Buscar</a>    </td>
+		</tr>
+		</tr>
+		
+
+
+</table>
+
+
+
+
+
+<table  align="center" border="1" >
+
+		<tr>
+		<td>DNI</td>
+		<td>Nombres y Apellidos Trab.</td>
+		<td>Proyecto</td>
+		<td>Razon social</td>
+		<td>Ruc</td>
+		</tr>
+		
+		
+		<tr>
+		<td>123456</td>  
+		<td>Alberto Ortega Alvarez</td>  
+		<td>Multi Servicios Sunat  </td>   
+		<td>Sunat</td>  
+		
+		<td>7654321</td>
+		
+		</tr>
+		
+		
+
+
+</table>
+
+
 </body>
 </html>

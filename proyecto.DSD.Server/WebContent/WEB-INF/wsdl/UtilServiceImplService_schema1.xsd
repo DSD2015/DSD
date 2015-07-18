@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://serviceImpl/" xmlns:tns="http://serviceImpl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="listarClientes" type="tns:listarClientes"/>
+
+  <xs:element name="listarClientesResponse" type="tns:listarClientesResponse"/>
+
+  <xs:element name="registrarSolicitud" type="tns:registrarSolicitud"/>
+
+  <xs:element name="registrarSolicitudResponse" type="tns:registrarSolicitudResponse"/>
+
+  <xs:complexType name="listarClientes">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="listarClientesResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:cliente" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="cliente">
+    <xs:sequence>
+      <xs:element name="codcliete" type="xs:int" minOccurs="0"/>
+      <xs:element name="estado" type="xs:string" minOccurs="0"/>
+      <xs:element name="razonsocial" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="registrarSolicitud">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:solicitud" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="solicitud">
+    <xs:sequence>
+      <xs:element name="codcli" type="xs:int" minOccurs="0"/>
+      <xs:element name="codsolicitud" type="xs:int" minOccurs="0"/>
+      <xs:element name="desperfil" type="xs:string" minOccurs="0"/>
+      <xs:element name="desproyecto" type="xs:string" minOccurs="0"/>
+      <xs:element name="estsolicitud" type="xs:string" minOccurs="0"/>
+      <xs:element name="feFin" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="feInicio" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="fecCreacion" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="registrarSolicitudResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

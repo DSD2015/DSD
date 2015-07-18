@@ -46,7 +46,6 @@ public class RecursosDTO implements Serializable{
 	}
 	public void setConocimiento(String conocimiento) {
 		this.conocimiento = conocimiento;
-
 	}
 	public String getHabilidad() {
 		return habilidad;

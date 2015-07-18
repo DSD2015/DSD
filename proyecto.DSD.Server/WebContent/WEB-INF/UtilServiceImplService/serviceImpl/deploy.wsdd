@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from UtilServiceImplService WSDL service -->
+
+  <service name="UtilServiceImpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://serviceImpl"/>
+      <parameter name="wsdlServiceElement" value="UtilServiceImplService"/>
+      <parameter name="schemaQualified" value="http://serviceImpl"/>
+      <parameter name="wsdlServicePort" value="UtilServiceImpl"/>
+      <parameter name="className" value="serviceImpl.UtilServiceImpl"/>
+      <parameter name="wsdlPortType" value="UtilServiceImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://serviceImpl" xmlns:retNS="http://serviceImpl" xmlns:rtns="http://serviceImpl" xmlns:tns="http://serviceImpl" name="listarClientes" qname="operNS:listarClientes" returnQName="retNS:listarClientesReturn" returnType="rtns:ArrayOf_xsd_anyType" returnItemQName="tns:item" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://serviceImpl" xmlns:retNS="http://serviceImpl" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="registrarSolicitud" qname="operNS:registrarSolicitud" returnQName="retNS:registrarSolicitudReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://serviceImpl" xmlns:tns="http://serviceImpl" qname="pns:solicitud" type="tns:Solicitud"/>
+      </operation>
+      <parameter name="allowedMethods" value="listarClientes registrarSolicitud"/>
+
+      <typeMapping xmlns:ns="http://serviceImpl" qname="ns:&gt;listarClientes" type="java:serviceImpl.ListarClientes" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <arrayMapping xmlns:ns="http://serviceImpl" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema" qname="ns:ArrayOf_xsd_anyType" type="java:java.lang.Object[]" innerType="cmp-ns:anyType" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://serviceImpl" qname="ns:Solicitud" type="java:serviceImpl.Solicitud" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://serviceImpl" qname="ns:&gt;registrarSolicitudResponse" type="java:serviceImpl.RegistrarSolicitudResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://serviceImpl" qname="ns:&gt;registrarSolicitud" type="java:serviceImpl.RegistrarSolicitud" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://serviceImpl" qname="ns:&gt;listarClientesResponse" type="java:serviceImpl.ListarClientesResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

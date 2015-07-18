@@ -1,38 +1,61 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
-	<meta charset="UTF-8">
-	<title>Quick Win</title>
-	<%@include file="headfile.jsp" %>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
 </head>
 <body>
-	<%@include file="menu.jsp" %>
-	<div class="container">
-		<h4>Registrar Recurso</h4>
-		<form role="form" action="actualizarTrabajador.jsp">
-			<div class="form-group">
-				<label for="dni">DNI:</label>
-				<input type="number" class="form-control" id="dni">
-			</div>
-			<div class="form-group">
-				<label for="nombre">Nombres y Apellidos Trab.:</label>
-				<input type="text" class="form-control" id="nombre">
-			</div>
-			<div class="form-group">
-				<label for="estado">Estado:</label>
-				<div class="radio">
-					<label><input name="estado" type="radio"> Activo</label>
-					<label><input name="estado" type="radio"> Inactivo</label>
-				</div>
-			</div>
-			<div>
-				<button type="submit" class="btn btn-default">Regresar</button>
-				<button type="submit" class="btn btn-primary" id="actualizar">Actualizar</button>
-			</div>
-		</form>
-	</div>
-	<%@include file="footer.jsp" %>
+
+
+
+<%@include file="menu.jsp" %>
+
+
+<table  align="center" >
+
+		<tr>
+		<td></td>   <td> Registrar Recurso	  </td>
+		</tr>
+		
+		
+		<tr>
+		<td>Ruc</td>   <td> <input  type="text" value="" >	  </td>   <td> <a  href="actualizarTrabajador.jsp" >Buscar</a>    </td>
+		</tr>
+		
+
+
+</table>
+
+
+
+
+
+<table  align="center" border="1" >
+
+		<tr>
+		<td>DNI</td>
+		<td>Nombres y Apellidos Trab.</td>
+		<td>Estado</td>
+		<td>Editar</td>
+	
+		</tr>
+		
+		
+		<tr>
+		<td>123456</td>  
+		<td>Alberto Ortega Alvarez</td>  
+		<td>Activo  </td> 
+		<td>  <a  href="editarTrabajador.jsp" >Actualizar</a>  </td>
+
+		</tr>
+		
+		
+
+
+</table>
+
+
 </body>
 </html>
