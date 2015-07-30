@@ -1,154 +1,76 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Quick Win</title>
+    <%@include file="headfile.jsp" %>
 </head>
-<body style="background:#999999">
-
-
-<%@include file="menu.jsp" %>
-
-
-<table  align="center" >
-
-		<tr>
-		<td></td>   <td> Reservar Recurso	  </td>
-		</tr>
-		
-		
-		<tr>
-		<td>Buscar Recurso</td>   <td> <a  href="modalBuscarRecurso.jsp" > Ingresar</a>	  </td>   <td>     </td>
-		</tr>
-		
-		
-		<tr>
-		<td>Solicitud</td>   <td> <input  type="text" value="S0001" >	  </td>   <td>     </td>
-		</tr>
-		
-		
-		<tr>
-		<td>Recurso</td>   <td> <input  type="text" value="Alberto Ortega" >	  </td>   <td>     </td>
-		</tr>
-		
-		<tr>
-		<td>Cantidad Horas</td>   <td> <input  type="text" value="" >	  </td>   <td>     </td>
-		</tr>
-		
-		
-		<tr>
-		<td> Fecha Inicio </td>   
-		
-		<td> <input  type="button" value=".........." >	  </td>   <td>     </td>
-		</tr>
-		
-		<tr>
-		<td> Fecha Fin </td>   
-		
-		<td> <input  type="button" value=".........." >	  </td>   <td>     </td>
-		</tr>
-		
-		
-		<tr>
-		<td>Detalle</td>   <td> <textarea rows="" cols=""></textarea>	  </td>   <td>     </td>
-		</tr>
-		
-		
-		<tr>
-		<td>Perfil</td>   <td> <input  type="text" value="Analista Programador" >	  </td>   <td>  <a  href="reservaRecursos.jsp" >Generar Reserva</a>   </td>
-		</tr>
-		
-		
-		
-		
-		
-
-
-</table>
-
-
-<%--
-
-<table  align="center" border="1" >
-
-		<tr>
-		<td>DNI</td>
-		<td>Nombres y Apellidos Trab.</td>
-		<td>Estado</td>
-	
-		</tr>
-		
-		<tr>
-		<td>123456</td>  
-		<td>Alberto Ortega Alvarez</td>  
-		<td>Activo  </td> 
-
-		</tr>
-		
-</table>
-
-
-
-<table  align="center" >
-		
-		<tr>
-		<td></td>   <td> 	  </td>   <td> <a  href="reservaRecursos.jsp" >Agregar Recurso</a>    </td>
-		</tr>
-		
-		
-			<tr>
-				<td>Rason social</td>
-		
-		
-		<td>
-		<select>
-		<option  >sunat</option>  
-		<option>Ministerio 1</option>
-		<option>Ministerio 2</option>
-		</select>	  </td> 
-			</tr> 
-		
-</table>
-
-
-<table  align="center" border="1" >
-
-		<tr>
-		<td>DNI</td>
-		<td>Nombres y Apellidos Trab.</td>
-		<td>Estado</td>
-		
-	    <td>Proyecto</td>
-	    <td>ruc</td>
-	    <td>Razon social</td>
-		</tr>
-		
-		<tr>
-		<td>123456</td>  
-		<td>Alberto Ortega Alvarez</td>  
-		<td>Activo  </td> 
-		<td>services sunat  </td>
-		<td>123234324456</td>   
-		<td>sunat</td> 
-		</tr>
-		
-</table>
-
-
-
-<table  align="center" >
-		
-		<tr>
-		<td></td>   <td> 	  </td>   <td> <a  href="reservaRecursos.jsp" >GUARDAR</a>    </td>
-		</tr>
-		
-
-		
-</table>
-
- --%>
-
+<body>
+    <%@include file="menu.jsp" %>
+    <div class="container">
+        <h3>Reserva de Recurso</h3>
+        <form role="form" action="reservaRecursos.jsp">
+            <div class="form-group">
+                <label for="ruc">Buscar Recurso:</label>
+                <button type="button" class="btn btn-default glyphicon glyphicon-search" data-toggle="modal" data-target="#buscarRecurso"></button>
+            </div>
+            <div class="form-group">
+                <label for="solic">Solicitud:</label>
+                <input type="text" class="form-control" id="solic" value="S0001" disabled>
+            </div>
+            <div class="form-group">
+                <label for="recurso">Recurso:</label>
+                <input type="text" class="form-control" id="recurso" value="Alberto Ortega" disabled>
+            </div>
+            <div class="form-group">
+                <label for="horas">Cantidad de Horas:</label>
+                <input type="number" class="form-control" id="horas">
+            </div>
+            <div class="form-group">
+                <label for="razSoc">Fecha Inicio:</label>
+                <div class='input-group date'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="razSoc">Fecha Fin:</label>
+                <div class='input-group date'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="detalle">Detalle:</label>
+                <textarea name="" id="detalle" cols="30" rows="8" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="perfil">Perfil:</label>
+                <input type="text" class="form-control" id="perfil" value="Analista Programador">
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Generar Reserva</button>
+            </div>
+        </form>
+    </div>
+    <%@include file="footer.jsp" %>
+    <div class="modal fade" tabindex="-1" role="dialog" id="buscarRecurso">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <h4 class="modal-title">Buscar Recurso</h4>
+            </div>
+            <div class="modal-body">
+              <%@include file="modalBuscarRecurso.jsp" %>
+            </div>
+          </div>
+      </div>
+    </div>
 </body>
 </html>
