@@ -9,6 +9,7 @@ import java.util.List;
 import com.upc.dsd.interfaces.TrabajadorDAO;
 import com.upc.dsd.structures.Perfil;
 import com.upc.dsd.structures.Trabajador;
+import com.upc.dsd.structures.TrabajadorProyecto;
 import com.upc.dsd.util.MySqlConexion;
 
 public class MySqlTrabajadorDAO implements TrabajadorDAO {
@@ -49,12 +50,13 @@ public class MySqlTrabajadorDAO implements TrabajadorDAO {
 	}
 	
 	@Override
-	public List<Trabajador> consultarTrabajadorxProyecto(String dni, String ruc) {
+	public List<TrabajadorProyecto> consultarTrabajadorxProyecto(String dni, String ruc) {
 		Connection cn = MySqlConexion.obtenerConexion();
-		List<Trabajador> list = new ArrayList<Trabajador>();
+		List<TrabajadorProyecto> list = new ArrayList<TrabajadorProyecto>();
 		try
 		{
-			PreparedStatement pStmt = cn.prepareStatement("SELECT rec.* FROM Solicitud soc"+
+			PreparedStatement pStmt = cn.prepareStatement("SELECT rec.*, soc.Co_cliente, soc.Rs_Cliente, soc.De_proyecto" +
+				" FROM Solicitud soc"+
 				" join Reserva res on soc.Co_Solicitud = res.Co_Solicitud" +
 				" join Recurso rec on res.Co_Trabajador = rec.codtrabajador" +
 				" where rec.NRODOC like ? and soc.co_cliente like ?;");
@@ -66,7 +68,7 @@ public class MySqlTrabajadorDAO implements TrabajadorDAO {
 			ResultSet rs = pStmt.getResultSet();
 			
 			while (rs.next()) {
-				Trabajador objTrab = new Trabajador();
+				TrabajadorProyecto objTrab = new TrabajadorProyecto();
 				objTrab.setCodTrabajador(rs.getInt("CODTRABAJADOR"));
 				objTrab.setNombre(rs.getString("NOMBRE"));
 				objTrab.setApePat(rs.getString("APEPAT"));
@@ -76,6 +78,9 @@ public class MySqlTrabajadorDAO implements TrabajadorDAO {
 				objTrab.setEspecialidad(rs.getString("ESPECIALIDAD"));
 				objTrab.setPerfil(rs.getInt("PERFIL"));
 				objTrab.setEstado(rs.getInt("ESTADO"));
+				objTrab.setRazSoc(rs.getString("Rs_Cliente"));
+				objTrab.setRuc(rs.getString("Co_Cliente"));
+				objTrab.setDescProyecto(rs.getString("De_proyecto"));
 				list.add(objTrab);
 			}
 

@@ -10,6 +10,7 @@ import javax.ws.rs.core.MediaType;
 import com.upc.dsd.bl.BussinesLogic;
 import com.upc.dsd.structures.Perfil;
 import com.upc.dsd.structures.Trabajador;
+import com.upc.dsd.structures.TrabajadorProyecto;
 
 @Path("/trabajador")
 public class TrabajadorApiResource {
@@ -34,11 +35,11 @@ public class TrabajadorApiResource {
 	@GET
 	@Path("/proyecto")
 	@Produces({ MediaType.APPLICATION_JSON })
-	public List<Trabajador> obtenerTrabajadoresxProyecto(
+	public List<TrabajadorProyecto> obtenerTrabajadoresxProyecto(
 			@QueryParam("dni") final String dni,
 			@QueryParam("ruc") final String ruc) {
 
-		List<Trabajador> trabajadores = null;
+		List<TrabajadorProyecto> trabajadores = null;
 		try {
 			trabajadores = BussinesLogic.obtenerTrabajadoresxProyecto(dni, ruc);
 		} catch (Exception e) {

@@ -6,6 +6,7 @@ import com.upc.dsd.dao.DAOFactory;
 import com.upc.dsd.interfaces.TrabajadorDAO;
 import com.upc.dsd.structures.Perfil;
 import com.upc.dsd.structures.Trabajador;
+import com.upc.dsd.structures.TrabajadorProyecto;
 
 public class BussinesLogic {
 
@@ -22,7 +23,7 @@ public class BussinesLogic {
 	public static List<Trabajador> obtenerTrabajadoresxEstado(String dni, int estado){
 		return objTrabajadorDAO.consultarTrabajadorxEstado(dni, estado);
 	}
-	public static List<Trabajador> obtenerTrabajadoresxProyecto(String dni, String ruc){
+	public static List<TrabajadorProyecto> obtenerTrabajadoresxProyecto(String dni, String ruc){
 		return objTrabajadorDAO.consultarTrabajadorxProyecto(dni, ruc);
 	}
 	public static List<Perfil> obtenerPerfiles(){
