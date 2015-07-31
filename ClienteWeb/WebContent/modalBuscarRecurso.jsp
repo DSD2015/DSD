@@ -1,11 +1,9 @@
-<div class="container">
+<div class="container" ng-controller="PerfilController">
     <div class="row">
         <div class="col-lg-4">
             <div class="form-group">
               <label for="perfil">Perfil:</label>
-              <select class="form-control" id="perfil">
-                <option>Analista</option>
-                <option>QA</option>
+              <select class="form-control" id="perfil" ng-model="perfil" ng-options="item.idPerfil as item.descripcion for item in perfiles">
               </select>
             </div>
         </div>

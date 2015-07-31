@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <title>Quick Win</title>
     <%@include file="headfile.jsp" %>
+    <script defer src="vendor/angular/angular.min.js"></script>
+    <script defer src="vendor/angular/angular-route.min.js"></script>
+    <script defer src="scripts/app.js"></script>
+    <script defer src="scripts/controllers/perfilControl.js"></script>
 </head>
-<body>
+<body ng-app="DsdApp">
     <%@include file="menu.jsp" %>
     <div class="container">
         <h3>Reserva de Recurso</h3>
