@@ -39,54 +39,38 @@
 </head>
 <body>
     <%@include file="menu2.jsp" %>
-    <form action="ServletSoli" name="solicitud" method="post" >
-    <input  type="hidden" name="met" value="registrar"  >
-    <table  align="center" >
-            <tr>
-                <td></td>
-                <td> Registrar Solicitud</td>
-            </tr>
-            <tr>
-                <td>Cliente</td>
-                <td>
-                    <select  name="selecCliente" id="selecCliente" >
+    <div class="container">
+        <h3>Registrar Solicitud</h3>
+        <form action="ServletSoli" name="solicitud" method="post" role="form">
+            <input  type="hidden" name="met" value="registrar"  >
+            <div class="form-group">
+                <label for="selecCliente">Cliente:</label>
+                <select  name="selecCliente" id="selecCliente" >
                     <%  for(Cliente cli  :listarCliente){  %>
                     <option  value="<%=cli.getCodcliete() %> "  ><%=cli.getRazonsocial() %>  </option>
                     <% } %>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Descripcion Perfil</td>
-                <td>
-                    <input type="text"  name="txtdesperfil" id="txtdesperfil" value="" >
-                </td>
-            </tr>
-            <tr>
-                <td>Descripcion Proyecto</td>
-                <td>
-                    <input type="text"  name="txtdesproy"   id="txtdesproy" value="" >
-                </td>
-            </tr>
-            <tr>
-                <td>Fecha Inicio</td>
-                <td>
-                    <input type="text"  name="txtfecinicio" id="txtfecinicio"  value="" >
-                </td>
-            </tr>
-            <tr>
-                <td>Fecha Fin</td>
-                <td>
-                    <input type="text"  name="txtfecfin"  id="txtfecfin" value="" >
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <a href="#" onclick="javascript:f_registrar();"  > Registrar</a>
-                </td>
-            </tr>
-    </table>
-    </form>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="txtdesperfil">Descripción Perfil:</label>
+                <input type="text" class="form-control" name="txtdesperfil" id="txtdesperfil" value="" >
+            </div>
+            <div class="form-group">
+                <label for="txtdesproy">Descripción Proyecto:</label>
+                <input type="text" class="form-control" name="txtdesproy" id="txtdesproy" value="" >
+            </div>
+            <div class="form-group">
+                <label for="txtfecinicio">Fecha Inicio:</label>
+                <input type="text" class="form-control" name="txtfecinicio" id="txtfecinicio" value="" >
+            </div>
+            <div class="form-group">
+                <label for="txtfecfin">Fecha Fin:</label>
+                <input type="text" class="form-control" name="txtfecfin" id="txtfecfin" value="" >
+            </div>
+            <div>
+                <a href="#" onclick="javascript:f_registrar();"  > Registrar</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
