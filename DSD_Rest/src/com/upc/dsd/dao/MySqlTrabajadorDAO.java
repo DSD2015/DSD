@@ -19,9 +19,9 @@ public class MySqlTrabajadorDAO implements TrabajadorDAO {
 		List<Trabajador> list = new ArrayList<Trabajador>();
 		try
 		{
-			PreparedStatement pStmt = cn.prepareStatement("SELECT * FROM RECURSO WHERE NRODOC = ? AND ESTADO = ?");
+			PreparedStatement pStmt = cn.prepareStatement("SELECT * FROM RECURSO WHERE NRODOC LIKE ? AND ESTADO = ?");
 			
-			pStmt.setString(1, dni);
+			pStmt.setString(1, "%" + dni + "%");
 			pStmt.setInt(2, estado);
 			pStmt.execute();
 			
@@ -54,10 +54,13 @@ public class MySqlTrabajadorDAO implements TrabajadorDAO {
 		List<Trabajador> list = new ArrayList<Trabajador>();
 		try
 		{
-			PreparedStatement pStmt = cn.prepareStatement("SELECT * FROM RECURSO WHERE NRODOC = ? AND ESTADO = ?");
+			PreparedStatement pStmt = cn.prepareStatement("SELECT rec.* FROM Solicitud soc"+
+				" join Reserva res on soc.Co_Solicitud = res.Co_Solicitud" +
+				" join Recurso rec on res.Co_Trabajador = rec.codtrabajador" +
+				" where rec.NRODOC like ? and soc.co_cliente like ?;");
 			
-			pStmt.setString(1, dni);
-			pStmt.setString(2, ruc);
+			pStmt.setString(1, "%" + dni + "%");
+			pStmt.setString(2, "%" + ruc + "%");
 			pStmt.execute();
 			
 			ResultSet rs = pStmt.getResultSet();
@@ -85,8 +88,28 @@ public class MySqlTrabajadorDAO implements TrabajadorDAO {
 
 	@Override
 	public List<Perfil> consultarPerfil() {
-		// TODO Auto-generated method stub
-		return null;
+		Connection cn = MySqlConexion.obtenerConexion();
+		List<Perfil> list = new ArrayList<Perfil>();
+		try
+		{
+			PreparedStatement pStmt = cn.prepareStatement("SELECT * FROM Perfil;");
+
+			pStmt.execute();
+			
+			ResultSet rs = pStmt.getResultSet();
+			
+			while (rs.next()) {
+				Perfil objPerf = new Perfil();
+				objPerf.setIdPerfil(rs.getInt("IDPERFIL"));
+				objPerf.setDescripcion(rs.getString("DESCRIPCION"));
+				list.add(objPerf);
+			}
+
+			cn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 }

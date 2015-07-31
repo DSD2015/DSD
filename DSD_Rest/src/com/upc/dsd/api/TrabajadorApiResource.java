@@ -8,6 +8,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import com.upc.dsd.bl.BussinesLogic;
+import com.upc.dsd.structures.Perfil;
 import com.upc.dsd.structures.Trabajador;
 
 @Path("/trabajador")
@@ -45,5 +46,20 @@ public class TrabajadorApiResource {
 		}
 
 		return trabajadores;
+	}
+	
+	@GET
+	@Path("/perfil")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public List<Perfil> obtenerPerfiles() {
+
+		List<Perfil> perfiles = null;
+		try {
+			perfiles = BussinesLogic.obtenerPerfiles();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return perfiles;
 	}
 }
