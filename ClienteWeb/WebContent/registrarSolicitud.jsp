@@ -45,7 +45,7 @@
             <input  type="hidden" name="met" value="registrar"  >
             <div class="form-group">
                 <label for="selecCliente">Cliente:</label>
-                <select  name="selecCliente" id="selecCliente" >
+                <select class="form-control" name="selecCliente" id="selecCliente" >
                     <%  for(Cliente cli  :listarCliente){  %>
                     <option  value="<%=cli.getCodcliete() %> "  ><%=cli.getRazonsocial() %>  </option>
                     <% } %>
