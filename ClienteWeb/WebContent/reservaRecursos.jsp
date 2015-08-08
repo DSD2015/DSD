@@ -9,32 +9,33 @@
     <script defer src="vendor/angular/angular-route.min.js"></script>
     <script defer src="scripts/app.js"></script>
     <script defer src="scripts/controllers/perfilControl.js"></script>
+    <script defer src="scripts/controllers/reservaControl.js"></script>
 </head>
 <body ng-app="DsdApp">
     <%@include file="menu.jsp" %>
-    <div class="container">
+    <div class="container"  ng-controller="ReservaController">
         <h3>Reserva de Recurso</h3>
-        <form role="form" action="reservaRecursos.jsp">
+        <form role="form">
             <div class="form-group">
                 <label for="ruc">Buscar Recurso:</label>
                 <button type="button" class="btn btn-default glyphicon glyphicon-search" data-toggle="modal" data-target="#buscarRecurso"></button>
             </div>
             <div class="form-group">
-                <label for="solic">Solicitud:</label>
-                <input type="text" class="form-control" id="solic" value="S0001" disabled>
+                <label for="solic">Solicitud:*</label>
+                <input type="text" class="form-control" id="solic" value="S0001" ng-model="solicitud">
             </div>
             <div class="form-group">
-                <label for="recurso">Recurso:</label>
-                <input type="text" class="form-control" id="recurso" value="Alberto Ortega" disabled>
+                <label for="recurso">Recurso:*</label>
+                <input type="text" class="form-control" id="recurso" ng-model='trabajador.fullName' disabled>
             </div>
             <div class="form-group">
                 <label for="horas">Cantidad de Horas:</label>
-                <input type="number" class="form-control" id="horas">
+                <input type="number" class="form-control" id="horas" ng-model="horas">
             </div>
             <div class="form-group">
                 <label for="razSoc">Fecha Inicio:</label>
                 <div class='input-group date'>
-                    <input type='text' class="form-control" />
+                    <input type='text' class="form-control" placeholder="YYYY-MM-DD" ng-model="fec_in"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -43,7 +44,7 @@
             <div class="form-group">
                 <label for="razSoc">Fecha Fin:</label>
                 <div class='input-group date'>
-                    <input type='text' class="form-control" />
+                    <input type='text' class="form-control" placeholder="YYYY-MM-DD" ng-model="fec_fin" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -51,14 +52,14 @@
             </div>
             <div class="form-group">
                 <label for="detalle">Detalle:</label>
-                <textarea name="" id="detalle" cols="30" rows="8" class="form-control"></textarea>
+                <textarea name="" id="detalle" cols="30" rows="8" class="form-control" ng-model="cn_perfil"></textarea>
             </div>
             <div class="form-group">
                 <label for="perfil">Perfil:</label>
-                <input type="text" class="form-control" id="perfil" value="Analista Programador">
+                <input type="text" class="form-control" id="perfil" ng-model="trabajador.especialidad" disabled>
             </div>
             <div>
-                <button type="submit" class="btn btn-primary">Generar Reserva</button>
+                <button type="submit" class="btn btn-primary" ng-click="generarReserva()">Generar Reserva</button>
             </div>
         </form>
     </div>

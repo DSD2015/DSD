@@ -13,10 +13,8 @@
 <body ng-app="DsdApp">
     <%@include file="menu.jsp" %>
     <div class="container" ng-controller="TrabajadorController">
+        <h3>Consultar Trabajador por Estado</h3>
         <div class="row">
-            <div class="col-lg-12">
-                <label>Consultar Trabajador por Estado:</label>
-            </div>
             <div class="col-lg-4">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="DNI" ng-model="nroDoc">

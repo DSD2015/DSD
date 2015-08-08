@@ -13,6 +13,7 @@
 <body ng-app="DsdApp">
 	<%@include file="menu.jsp" %>
 	<div class="container" ng-controller="ProyectoController">
+        <h3>Consultar Trabajador por Proyecto</h3>
         <div class="row">
             <div class="col-lg-12">
                 <label>Consultar Trabajador por Proyecto:</label>
