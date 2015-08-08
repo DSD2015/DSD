@@ -7,7 +7,10 @@ import com.upc.dsd.structures.Trabajador;
 import com.upc.dsd.structures.TrabajadorProyecto;
 
 public interface TrabajadorDAO {
-	public List<Trabajador> consultarTrabajadorxEstado(String dni, int estado);
-	public List<TrabajadorProyecto> consultarTrabajadorxProyecto(String dni, String ruc);
-	public List<Perfil> consultarPerfil();
+	public List<Trabajador> consultarTrabajadorxEstado(String dni, int estado) throws Exception;
+	public List<TrabajadorProyecto> consultarTrabajadorxProyecto(String dni, String ruc) throws Exception;
+	public List<Trabajador> consultarTrabajadorxFecha(String fec_in, String fec_fin, int perfil, int estado) throws Exception;
+	public List<Perfil> consultarPerfil() throws Exception;
+	public void actualizarTrabajador (Trabajador trabajador) throws Exception;
+	public Trabajador crearTrabajador (Trabajador trabajador) throws Exception;
 }
