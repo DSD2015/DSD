@@ -1,5 +1,6 @@
 package com.upc.dsd.dao;
 
+import java.io.Serializable;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,6 +14,10 @@ import com.upc.dsd.structures.Trabajador;
 import com.upc.dsd.structures.TrabajadorProyecto;
 import com.upc.dsd.util.MySqlConexion;
 
+import javax.jms.*;
+import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.broker.BrokerService;
+
 public class MySqlTrabajadorDAO implements TrabajadorDAO {
 
 	@Override
@@ -21,6 +26,57 @@ public class MySqlTrabajadorDAO implements TrabajadorDAO {
 		List<Trabajador> list = new ArrayList<Trabajador>();
 		try
 		{
+			
+			/*************************************************************************/
+			try{
+				//crearBroker();
+				
+					ConnectionFactory fabrica = new ActiveMQConnectionFactory("tcp://localhost:61616");
+					Connection conexion = (Connection) fabrica.createConnection();
+					((BrokerService) conexion).start();
+					
+					Session sesion = ((javax.jms.Connection) conexion).createSession(false, Session.AUTO_ACKNOWLEDGE);
+			
+					Destination colaJMS = sesion.createQueue("colaBeans");
+					
+					MessageConsumer consumidor = sesion.createConsumer(colaJMS);
+					
+					ObjectMessage mensaje;
+					
+					while(true){
+						
+						mensaje = (ObjectMessage) consumidor.receive(1000);
+						
+						if(mensaje != null){
+						
+							Trabajador traba = (Trabajador)mensaje.getObject();
+						
+						System.out.println("Objeto en la cola");	
+						System.out.println("Cod:" + traba.getCodTrabajador());
+						System.out.println("Nombre:" + traba.getNombre());
+						System.out.println("Nombre:" + traba.getNombre());
+						System.out.println("Objeto en la cola");
+						
+							this.crearTrabajador(traba);
+						
+			
+						}else{
+							System.out.println("Ya no hay mensajes");
+							consumidor.close();
+							sesion.close();
+							conexion.close();
+							break;
+						}	
+						
+					}
+					
+			
+			}catch(Exception ex){
+				System.out.println("No existe broker");
+			}
+			/*************************************************************************/
+			
+			
 			PreparedStatement pStmt = cn.prepareStatement("SELECT * FROM RECURSO WHERE NRODOC LIKE ? AND ESTADO = ?");
 			
 			pStmt.setString(1, "%" + dni + "%");
@@ -44,6 +100,14 @@ public class MySqlTrabajadorDAO implements TrabajadorDAO {
 			}
 
 			cn.close();
+			
+			
+			
+			
+			
+			
+			
+			
 		}catch(Exception e){
 			e.printStackTrace();
 			throw e;
@@ -201,8 +265,18 @@ public class MySqlTrabajadorDAO implements TrabajadorDAO {
 		Connection cn = MySqlConexion.obtenerConexion();
 		try
 		{
+			
+			if(cn!=null){
+			
 			PreparedStatement pStmt = cn.prepareStatement("Insert into recurso (nombre,apepat,apemat,edad,nrodoc,especialidad,estado, perfil)" +
 				" values (?, ?, ?, ?, ?, ?, ?, ?);", Statement.RETURN_GENERATED_KEYS);
+			
+			
+			System.out.println("_"+trabajador.getNombre()+"-"+trabajador.getApePat()+"-"+trabajador.getApeMat()
+					+"-"+trabajador.getEdad()+"-"+trabajador.getNroDoc()+"-"+trabajador.getEspecialidad()
+					+"-"+trabajador.getEstado()+"-"+ trabajador.getPerfil()  );
+			
+			
 			pStmt.setString(1, trabajador.getNombre());
 			pStmt.setString(2, trabajador.getApePat());
 			pStmt.setString(3, trabajador.getApeMat());
@@ -212,7 +286,11 @@ public class MySqlTrabajadorDAO implements TrabajadorDAO {
 			pStmt.setInt(7, trabajador.getEstado());
 			pStmt.setInt(8, trabajador.getPerfil());
 			
+			System.out.println("pStmt:"+pStmt.toString());
+			
 			pStmt.executeUpdate();
+			
+			
 			
 			ResultSet rs = pStmt.getGeneratedKeys();
 			
@@ -220,11 +298,78 @@ public class MySqlTrabajadorDAO implements TrabajadorDAO {
 				trabajador.setCodTrabajador(rs.getInt(1));
 			}
 			cn.close();
+			
+			
+			}else{
+				
+			try{
+			
+			System.out.println("-----------MQ-----------");
+        	//crearBroker();
+        	
+        	
+        	System.out.println("-----------EN COLAR-----------");
+        	ConnectionFactory fabrica = new ActiveMQConnectionFactory("tcp://localhost:61616");
+        	Connection conexion = (Connection) fabrica.createConnection();
+        	((BrokerService) conexion).start();
+        	
+        	//2 Iniciar una sesion JMS
+        	// false para que se auto-commit
+        	//sesion.commit();
+        	Session sesion = ((javax.jms.Connection) conexion).createSession(false, Session.AUTO_ACKNOWLEDGE);
+        	
+        	//3 Crear o referencia la colaJMS
+        	Destination colaJMS = sesion.createQueue("colaBeans");
+        	
+        	//Creamos el productor de mensajes
+        	MessageProducer productor = sesion.createProducer(colaJMS);
+        	
+        	
+        	
+        	ObjectMessage mensaje = sesion.createObjectMessage( (Serializable) trabajador);
+        	productor.send(mensaje);
+        	
+        	System.out.println("Bean trabajador enviado a la cola");
+        	
+        	productor.close();
+        	sesion.close();
+        	conexion.close();
+        	System.out.println("-----------EN COLAR-----------");
+        	
+        	System.out.println("-----------MQ-----------");
+        	
+			}catch(Exception e){
+				System.out.println("MQ CERRADO");
+			}
+			
+			}
+			
+			
 		}catch(Exception e){
 			e.printStackTrace();
 			throw e;
 		}
 		return trabajador;
 	}
+	
+	void crearBroker(){
+		
+		try {
+		BrokerService broker = new BrokerService();
+		
+			broker.setUseJmx(true);
+			broker.addConnector("tcp://localhost:61616");
+			
+			broker.start();
+			System.out.println("Broker JMS Iniciado OK");
+			while(true);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
 
 }

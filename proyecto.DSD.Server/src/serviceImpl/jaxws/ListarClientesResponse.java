@@ -14,14 +14,14 @@ import javax.xml.bind.annotation.XmlType;
 public class ListarClientesResponse {
 
     @XmlElement(name = "return", namespace = "")
-    private ArrayList<serviceImpl.Cliente> _return;
+    private ArrayList<bean.Cliente> _return;
 
     /**
      * 
      * @return
      *     returns ArrayList<Cliente>
      */
-    public ArrayList<serviceImpl.Cliente> getReturn() {
+    public ArrayList<bean.Cliente> getReturn() {
         return this._return;
     }
 
@@ -30,7 +30,7 @@ public class ListarClientesResponse {
      * @param _return
      *     the value for the _return property
      */
-    public void setReturn(ArrayList<serviceImpl.Cliente> _return) {
+    public void setReturn(ArrayList<bean.Cliente> _return) {
         this._return = _return;
     }
 

@@ -1,7 +1,7 @@
 app.controller('ReservaController', function($scope, $http) {
     $scope.trabajador = "";
 
-    var urlBasePath = "http://localhost:8081/DSD_Rest/rest/",
+    var urlBasePath = "http://localhost:8084/DSD_Rest/rest/",
         reqReserva = {
             method: "POST",
             url: urlBasePath + "reserva/crear"

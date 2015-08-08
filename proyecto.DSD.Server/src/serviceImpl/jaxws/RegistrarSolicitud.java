@@ -13,14 +13,14 @@ import javax.xml.bind.annotation.XmlType;
 public class RegistrarSolicitud {
 
     @XmlElement(name = "arg0", namespace = "")
-    private serviceImpl.Solicitud arg0;
+    private bean.Solicitud arg0;
 
     /**
      * 
      * @return
      *     returns Solicitud
      */
-    public serviceImpl.Solicitud getArg0() {
+    public bean.Solicitud getArg0() {
         return this.arg0;
     }
 
@@ -29,7 +29,7 @@ public class RegistrarSolicitud {
      * @param arg0
      *     the value for the arg0 property
      */
-    public void setArg0(serviceImpl.Solicitud arg0) {
+    public void setArg0(bean.Solicitud arg0) {
         this.arg0 = arg0;
     }
 

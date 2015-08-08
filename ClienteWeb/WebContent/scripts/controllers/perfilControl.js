@@ -5,7 +5,7 @@ app.controller('PerfilController', function($scope, $rootScope, $http) {
     $scope.perfil = 1;
     $scope.estado = "1";
 
-    var urlBasePath = "http://localhost:8081/DSD_Rest/rest/",
+    var urlBasePath = "http://localhost:8084/DSD_Rest/rest/",
         reqPerfil = {
             method: "GET",
             url: urlBasePath + "trabajador/perfil"

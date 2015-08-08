@@ -4,7 +4,7 @@ app.controller('ProyectoController', function($scope, $http) {
     $scope.nroDoc = "";
     $scope.trabajadores = [];
 
-    var urlBasePath = "http://localhost:8081/DSD_Rest/rest/",
+    var urlBasePath = "http://localhost:8084/DSD_Rest/rest/",
         reqTrabProy = {
             method: "GET",
             url: urlBasePath + "trabajador/proyecto",

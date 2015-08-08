@@ -6,8 +6,15 @@
     <title>Quick Win</title>
 </head>
 <body>
-    <form  action="TestServlet" name="demo" method="post"  >
-        <a  href="TestServlet?met=123" >test</a>
+    <form  action="/SoliServlet" name="demo" method="post"  >
+        <a  href="/ServletSoli?met=123" >test</a>
+        
+        
+         <a  href="/SoliServlet?met=123" >test</a>
+         
+         
+         <input  type="submit" value="envia" >
+        
     </form>
 </body>
 </html>

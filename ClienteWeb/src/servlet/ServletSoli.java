@@ -1,17 +1,12 @@
 package servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +15,10 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import utilserviceImple.UtilServiceImple.*;
+import serviceImpl.UtilServiceImpl.Cliente;
+import serviceImpl.UtilServiceImpl.Solicitud;
+import serviceImpl.UtilServiceImpl.UtilService;
+import serviceImpl.UtilServiceImpl.UtilServiceImplService;
 
 /**
  * Servlet implementation class ServletSoli
@@ -47,14 +45,11 @@ public class ServletSoli extends HttpServlet {
 	    	  
 	   	   try {
 				UtilServiceImplService 	service 	= new UtilServiceImplService();
-				UtilServiceImpl 		serviImpl 	= service.getUtilServiceImplPort();
+				UtilService 		serviImpl 	= service.getUtilServiceImplPort();
 				
 				
 				ArrayList<Cliente>  
 				listarCliente =  (ArrayList<Cliente>) serviImpl.listarClientes();
-				
-				
-				System.out.println("listarCliente : "+ listarCliente );
 				
 				System.out.println("listarCliente : "+ listarCliente.size() );
 	   		
@@ -74,7 +69,7 @@ public class ServletSoli extends HttpServlet {
 	    	  
 		   	   try {
 					UtilServiceImplService 	service 	= new UtilServiceImplService();
-					UtilServiceImpl 		serviImpl 	= service.getUtilServiceImplPort();
+					UtilService 		serviImpl 	= service.getUtilServiceImplPort();
 					
 					
 					

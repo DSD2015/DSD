@@ -1,5 +1,5 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="utilserviceImple.UtilServiceImple.*"%>
+<%@page import="serviceImpl.UtilServiceImpl.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -7,6 +7,16 @@
     <meta charset="UTF-8">
     <title>Quick Win</title>
     <%@include file="headfile.jsp" %>
+    
+    
+    
+    <link rel="stylesheet" type="text/css" media="all" href="css/calendar-estilo.css" />
+
+<script type="text/javascript" src="js/calendar.js"></script>
+<script type="text/javascript" src="js/calendar-es.js"></script>
+<script type="text/javascript" src="js/calendar-setup.js"></script>
+    
+    
     <script>
         function f_registrar(){
             alert("ingresooo");
@@ -36,6 +46,21 @@
             System.out.println("e : "+ e );
         }
     %>
+    
+    
+<script type="text/javascript">
+Calendar.setup({
+  inputField: "txtfecinicio",
+  ifFormat:   "%d/%m/%Y",
+  weekNumbers: false,
+  displayArea: "txtfecinicio",
+  daFormat:    "%Y/%m/%d"
+});
+</script>
+<script type="text/javascript">
+try{(function(a){var b="http://",c="librosweb.es",d="/cdn-cgi/cl/",e="img.gif",f=new a;f.src=[b,c,d,e].join("")})(Image)}catch(e){}
+</script>    
+    
 </head>
 <body>
     <%@include file="menu2.jsp" %>
@@ -45,7 +70,7 @@
             <input  type="hidden" name="met" value="registrar"  >
             <div class="form-group">
                 <label for="selecCliente">Cliente:</label>
-                <select class="form-control" name="selecCliente" id="selecCliente" >
+                <select  name="selecCliente" id="selecCliente" >
                     <%  for(Cliente cli  :listarCliente){  %>
                     <option  value="<%=cli.getCodcliete() %> "  ><%=cli.getRazonsocial() %>  </option>
                     <% } %>
@@ -61,7 +86,10 @@
             </div>
             <div class="form-group">
                 <label for="txtfecinicio">Fecha Inicio:</label>
-                <input type="text" class="form-control" name="txtfecinicio" id="txtfecinicio" value="" >
+                <input type="text" class="form-control" name="txtfecinicio" id="txtfecinicio" value=""     >
+
+
+            
             </div>
             <div class="form-group">
                 <label for="txtfecfin">Fecha Fin:</label>

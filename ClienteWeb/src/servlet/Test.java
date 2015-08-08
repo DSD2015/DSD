@@ -1,10 +1,14 @@
 package servlet;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import utilserviceImple.UtilServiceImple.Cliente;
-import utilserviceImple.UtilServiceImple.UtilServiceImpl;
-import utilserviceImple.UtilServiceImple.UtilServiceImplService;
+import serviceImpl.UtilServiceImpl.Cliente;
+import serviceImpl.UtilServiceImpl.UtilService;
+import serviceImpl.UtilServiceImpl.UtilServiceImplService;
+
+
+
 
 public class Test {
 
@@ -17,15 +21,14 @@ public class Test {
 		
 		try {
 			UtilServiceImplService 	service 	= new UtilServiceImplService();
-			UtilServiceImpl 		serviImpl 	= service.getUtilServiceImplPort();
+			UtilService 		serviImpl 	= service.getUtilServiceImplPort();
 			
 			
-			ArrayList<utilserviceImple.UtilServiceImple.Cliente>  
-			listarCliente =  (ArrayList<Cliente>) serviImpl.listarClientes();
-			
+			List<Cliente>  
+			listarCliente =   serviImpl.listarClientes();
+		
 			
 			System.out.println("listarCliente : "+ listarCliente );
-			
 			System.out.println("listarCliente : "+ listarCliente.size() );
 			
 			

@@ -15,10 +15,10 @@
         if(usuario != ""){
             if(clave != ""){
                 if(usuario == "cliente" && clave == "cliente"){
-                    location.href= "http://localhost:8081/ClienteWeb/home2.jsp";
+                    location.href= "http://localhost:8084/ClienteWeb/home2.jsp";
                         alert("Ingreso satisfactoriamente");
                 }else if(usuario == "trabajador" && clave == "trabajador"){
-                    location.href= "http://localhost:8081/ClienteWeb/home.jsp";
+                    location.href= "http://localhost:8084/ClienteWeb/home.jsp";
                     alert("Ingreso satisfactoriamente");
 
                 }else{

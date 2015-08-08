@@ -19,7 +19,7 @@ app.controller('TrabajadorController', function($scope, $http, $location) {
     $scope.perfil = 1;
     $scope.perfiles = [];
 
-    var urlBasePath = "http://localhost:8081/DSD_Rest/rest/",
+    var urlBasePath = "http://localhost:8084/DSD_Rest/rest/",
         reqTrabEstado = {
             method: "GET",
             url: urlBasePath + "trabajador/estado",
